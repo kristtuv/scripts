@@ -1,0 +1,15 @@
+CLOCK="%H:%M:%S";
+echo $CLOCK
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -d) CLOCK='%d/%m/%y
+%H:%M:%S'; shift;;
+
+    esac
+done
+
+while true; do
+    tput clear;
+    date +"$CLOCK"|figlet;
+    sleep 1;
+done
